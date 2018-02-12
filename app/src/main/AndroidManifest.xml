@@ -3,6 +3,11 @@
           package="com.example.usuario.broadcastreceiver"
     >
 
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission-sdk-23 android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission-sdk-23 android:name="android.permission.READ_PHONE_STATE"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -18,16 +23,17 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
         <receiver android:name=".CallBroadcast">
             <intent-filter>
                 <action android:name="android.intent.action.PHONE_STATE"/>
             </intent-filter>
+            <intent-filter>
+                <action android:name="com.example.usuario.broadcastreceiver.intent"/>
+            </intent-filter>
         </receiver>
+        <activity android:name=".CallInformationActivity">
+        </activity>
     </application>
-
-    <uses-permission android:name="android.permission.CALL_PHONE"/>
-    <uses-permission-sdk-23 android:name="android.permission.CALL_PHONE"/>
-    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
-    <uses-permission-sdk-23 android:name="android.permission.READ_PHONE_STATE"/>
 
 </manifest>
